@@ -36,7 +36,7 @@
                 <img class="mr-3" src="{{ url('assets/bca.png') }}" alt="Bank BCA" width="60">
                 <div class="media-body">
                     <h5 class="mt-0">BANK BCA</h5>
-                    No. Rekening 2880236540 atas nama <strong>Purwanti</strong>
+                    No. Rekening 7130761849 atas nama <strong>Dian Sudaryati</strong>
                 </div>
             </div>
         </div>
