@@ -26,7 +26,7 @@
    {{-- BEST PRODUCT  --}}
    <section class="products mt-5 mb-5">
       <h3>
-         <strong>Best Products</strong>
+         <strong>Produk Terbaru</strong>
          <a href="{{ route('products') }}" class="btn btn-dark float-right"><i class="fas fa-eye"></i> Lihat Semua </a>
       </h3>
       <div class="row mt-4">
