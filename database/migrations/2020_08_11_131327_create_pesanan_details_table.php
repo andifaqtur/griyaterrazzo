@@ -12,12 +12,14 @@ class CreatePesananDetailsTable extends Migration
      * @return void
      */
     public function up()
-    {
+    {   Schema::defaultStringLength(191);
         Schema::create('pesanan_details', function (Blueprint $table) {
             $table->id();
             $table->integer('jumlah_pesanan');
             $table->integer('total_harga');
-            $table->integer('product_id');
+            $table->integer('total_berat');
+            $table->integer('ongkir');
+            $table->integer('product_id');            
             $table->integer('pesanan_id');
             $table->timestamps();
         });

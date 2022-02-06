@@ -85,6 +85,22 @@
                                 @enderror
                             </td>
                         </tr>
+                        <tr>
+                            <td>Kota Tujuan</td>
+                            <td>:</td>
+                            <td>
+                                <input id="tujuan" type="text"
+                                    class="form-control @error('tujuan') is-invalid @enderror"
+                                    wire:model="tujuan" value="{{ old('tujuan') }}" required
+                                    autocomplete="name" autofocus>
+
+                                @error('tujuan')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </td>
+                        </tr>
                         @if($product->jumlah_stok <= 0)
                         <tr>
                             <td colspan="3">

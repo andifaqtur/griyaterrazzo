@@ -31,6 +31,7 @@
                             <td>Keterangan</td>
                             <td>Jumlah</td>
                             <td>Harga</td>
+                            <td>Total Berat</td>
                             <td><strong>Total Harga</strong></td>
                             <td></td>
                         </tr>
@@ -48,6 +49,8 @@
                             </td>
                             <td>{{ $pesanan_detail->jumlah_pesanan }}</td>
                             <td>Rp. {{ number_format($pesanan_detail->product->harga) }}</td>
+                            <td>{{ $pesanan_detail->total_berat }}Kg</td>
+                            <td>Rp. {{ $pesanan_detail->ongkir }}</td>
                             <td><strong>Rp. {{ number_format($pesanan_detail->total_harga) }}</strong></td>
                             <td>
                                 <i wire:click="destroy({{ $pesanan_detail->id }})" class="fas fa-trash text-danger"></i>
@@ -63,6 +66,11 @@
                         <tr>
                             <td colspan="6" align="right"><strong>Total Harga : </strong></td>
                             <td align="right"><strong>Rp. {{ number_format($pesanan->total_harga) }}</strong> </td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td colspan="6" align="right"><strong>Total Berat : </strong></td>
+                            <td align="right"><strong>{{ number_format($pesanan->total_berat) }} Kg</strong> </td>
                             <td></td>
                         </tr>
                         <tr>

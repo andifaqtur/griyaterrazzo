@@ -10,6 +10,7 @@ class Pesanan extends Model
         'kode_pemesanan',
         'status',
         'total_harga',
+        'total_berat',
         'kode_unik',
         'user_id',
     ];
