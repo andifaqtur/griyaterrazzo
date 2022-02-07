@@ -32,6 +32,7 @@
                             <td>Jumlah</td>
                             <td>Harga</td>
                             <td>Total Berat</td>
+                            <td>Ongkir</td>
                             <td><strong>Total Harga</strong></td>
                             <td></td>
                         </tr>
