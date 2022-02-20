@@ -54,8 +54,12 @@
                             <td>
                                 @if($pesanan->status == 1)
                                 Belum Lunas
+                                @elseif($pesanan->status == 2)
+                                Sudah Lunas
+                                @elseif($pesanan->status == 3)
+                                Dikirm
                                 @else
-                                Lunas
+                                Selesai
                                 @endif
                             </td>
                             <td><strong>Rp. {{ number_format($pesanan->total_harga+$pesanan->kode_unik) }}</strong></td>
