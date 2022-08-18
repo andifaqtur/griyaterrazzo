@@ -43,9 +43,9 @@
                             <td>{{ $pesanan->created_at }}</td>
                             <td>{{ $pesanan->kode_pemesanan }}</td>
                             <td>
-                                <?php $pesanan_details = \App\PesananDetail::where('pesanan_id', $pesanan->id)->get(); ?>
+                                <?php $pesanan_details = \App\PesananDetail::with('product', 'product.photo_product')->where('pesanan_id', $pesanan->id)->get(); ?>
                                 @foreach ($pesanan_details as $pesanan_detail)
-                                <img src="{{ url('assets/product') }}/{{ $pesanan_detail->product->gambar }}"
+                                <img src="{{ url('assets/product') }}/{{ $pesanan_detail->product->photo_product[0]->photo_path }}"
                                     class="img-fluid" width="50">
                                 {{ $pesanan_detail->product->nama }}
                                 <br>

@@ -2,7 +2,24 @@
 
    {{-- BANNER --}}
    <div class="banner">
-      <img src="{{ url('assets/slider/slider1.png') }}" alt="">
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+         <div class="carousel-inner">
+            <div class="carousel-item active">
+               <img class="d-block w-100" src="{{ url('assets/slider/slider1.png') }}" alt="">
+            </div>
+            <div class="carousel-item">
+               <img class="d-block w-100" src="{{ url('assets/slider/slider1.png') }}" alt="">
+            </div>
+         </div>
+         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+         </a>
+         <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+         </a>
+      </div>
    </div>
 
    {{-- PILIH KATEGORI  --}}
@@ -34,7 +51,7 @@
          <div class="col-md-3">
             <div class="card">
                <div class="card-body text-center">
-                  <img src="{{ url('assets/product') }}/{{ $product->gambar }}" class="img-fluid">
+                  <img src="{{ url('assets/product') }}/{{ $product->photo_product[0]->photo_path }}" class="img-fluid">
                   <div class="row mt-2">
                      <div class="col-md-12">
                         <h5><strong>{{ $product->nama }}</strong> </h5>

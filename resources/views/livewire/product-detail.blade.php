@@ -25,7 +25,28 @@
         <div class="col-md-6">
             <div class="card gambar-product">
                 <div class="card-body">
-                    <img src="{{ url('assets/product') }}/{{ $product->gambar }}" class="img-fluid">
+                    {{-- {{ dd(count($product->photo_product)) }} --}}
+                    @if (count($product->photo_product) > 1)
+                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                @for ($i=0;$i<count($product->photo_product);$i++)
+                                    <div class="{{ $i == 0 ? 'carousel-item active' : 'carousel-item' }}">
+                                        <img src="{{ url('assets/product') }}/{{ $product->photo_product[$i]->photo_path }}" class="img-fluid">
+                                    </div>
+                                @endfor
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+                    @else
+                        <img src="{{ url('assets/product') }}/{{ $product->photo_product[0]->photo_path }}" class="img-fluid">
+                    @endif
                 </div>
             </div>
         </div>
@@ -44,7 +65,7 @@
 
             <div class="row">
                 <div class="col">
-                    <form wire:submit.prevent="masukkanKeranjang"> 
+                    <form wire:submit.prevent="masukkanKeranjang">
                     <table class="table" style="border-top : hidden">
                         <tr>
                             <td>Kategori</td>
@@ -69,68 +90,18 @@
                             <td>:</td>
                             <td>{{ $product->berat }}Kg</td>
                         </tr>
-                        <tr>
-                            <td>Jumlah</td>
-                            <td>:</td>
-                            <td>
-                                <input id="jumlah_pesanan" type="number"
-                                    class="form-control @error('jumlah_pesanan') is-invalid @enderror"
-                                    wire:model="jumlah_pesanan" value="{{ old('jumlah_pesanan') }}" required
-                                    autocomplete="name" autofocus>
 
-                                @error('jumlah_pesanan')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Kota Tujuan</td>
-                            <td>:</td>
-                            <td>
-                                <input id="tujuan" type="text"
-                                    class="form-control @error('tujuan') is-invalid @enderror"
-                                    wire:model="tujuan" value="{{ old('tujuan') }}" required
-                                    autocomplete="name" autofocus>
 
-                                @error('tujuan')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </td>
-                        </tr>
-                        @if($product->jumlah_stok <= 0)
                         <tr>
                             <td colspan="3">
-                                <button type="submit" class="btn btn-dark btn-block"  disabled ><i class="fas fa-shopping-cart"></i>  Masukkan Keranjang</button>
+                                <a href="https://wa.me/6281315357733" target="_blank" class="btn btn-dark btn-block" ><i class="fas fa-shopping-cart"></i>  Chat Kami</a>
                             </td>
                         </tr>
-                        @elseif($product->jumlah_stok >= $jumlah_pesanan and $jumlah_pesanan <= 0)
-                        <tr>
-                            <td colspan="3">
-                                <button type="submit" class="btn btn-dark btn-block"  disabled ><i class="fas fa-shopping-cart"></i>  Masukkan Keranjang</button>
-                            </td>
-                        </tr>
-                        @elseif($product->jumlah_stok < $jumlah_pesanan and $jumlah_pesanan > 0)
-                        <tr>
-                            <td colspan="3">
-                                <button type="submit" class="btn btn-dark btn-block"  disabled ><i class="fas fa-shopping-cart"></i>  Masukkan Keranjang</button>
-                            </td>
-                        </tr>
-                        @elseif($product->jumlah_stok >= $jumlah_pesanan and $jumlah_pesanan > 0)
-                        <tr>
-                            <td colspan="3">
-                                <button type="submit" class="btn btn-dark btn-block" ><i class="fas fa-shopping-cart"></i>  Masukkan Keranjang</button>
-                            </td>
-                        </tr>
-                        @endif
+
                     </table>
                     </form>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

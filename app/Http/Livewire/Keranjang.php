@@ -16,10 +16,10 @@ class Keranjang extends Component
     {
        $pesanan_detail = PesananDetail::find($id);
        if(!empty($pesanan_detail)) {
-           
+
            $pesanan = Pesanan::where('id', $pesanan_detail->pesanan_id)->first();
            $jumlah_pesanan_detail = PesananDetail::where('pesanan_id', $pesanan->id)->count();
-           if($jumlah_pesanan_detail == 1) 
+           if($jumlah_pesanan_detail == 1)
            {
                $pesanan->delete();
            }else {
@@ -38,10 +38,10 @@ class Keranjang extends Component
     public function render()
     {
         if(Auth::user()) {
-            $this->pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status',0)->first();
+            $this->pesanan = Pesanan::with('product', 'product.photo_product')->where('user_id', Auth::user()->id)->where('status',0)->first();
             if($this->pesanan)
             {
-                $this->pesanan_details = PesananDetail::where('pesanan_id', $this->pesanan->id)->get();
+                $this->pesanan_details = PesananDetail::with('product', 'product.photo_product')->where('pesanan_id', $this->pesanan->id)->get();
             }
         }
 

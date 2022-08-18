@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->integer('jumlah_stok');
             $table->string('keterangan')->default('Top Quality');
             $table->float('berat')->default(2);
-            $table->string('gambar');
+            // $table->string('gambar');
             $table->timestamps();
         });
     }

@@ -43,7 +43,7 @@
                         <tr>
                             <td>{{ $no++ }}</td>
                             <td>
-                                <img src="{{ url('assets/product') }}/{{ $pesanan_detail->product->gambar }}" class="img-fluid" width="200">
+                                <img src="{{ url('assets/product') }}/{{ $pesanan_detail->product->photo_product[0]->photo_path }}" class="img-fluid" width="200">
                             </td>
                             <td>
                                 {{ $pesanan_detail->product->nama }}
@@ -56,13 +56,13 @@
                             <td>
                                 <i wire:click="destroy({{ $pesanan_detail->id }})" class="fas fa-trash text-danger"></i>
                             </td>
-                        </tr>    
+                        </tr>
                         @empty
                         <tr>
                             <td colspan="7">Data Kosong</td>
-                        </tr>   
+                        </tr>
                         @endforelse
-                        
+
                         @if(!empty($pesanan))
                         <tr>
                             <td colspan="6" align="right"><strong>Total Harga : </strong></td>

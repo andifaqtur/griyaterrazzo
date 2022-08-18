@@ -13,83 +13,57 @@ class ProductSeeder extends Seeder
     public function run()
     {
         DB::table('products')->insert([
-        	'nama' => 'Rak Ambalan Tingkat Natural',
-            'harga' => 130000,
-            'kategori_id' => 2,
-            'jumlah_stok' => 99,
-            'gambar' => 'tingkatnatural.png'
+            [
+                'nama' => 'Bak Mandi Blong Full',
+                'harga' => 1400000,
+                'kategori_id' => 1,
+                'jumlah_stok' => 20,
+                'keterangan' => '• Tinggi 70cm (termasuk tatakan), lebar 57cm • Permukaan glossy mengkilap • Dilengkapi lubang untuk menguras air • Silahkan chat wa untuk informasi ongkir',
+                'berat' => 20,
+            ],
+            [
+                'nama' => 'Bak Mandi Bakul',
+                'harga' => 1100000,
+                'kategori_id' => 1,
+                'jumlah_stok' => 18,
+                'keterangan' => '• Tinggi 60cm (termasuk tatakan), lebar 46cm • Permukaan glossy mengkilap • Dilengkapi lubang untuk menguras air • Silahkan chat wa untuk informasi ongkir',
+                'berat' => 20,
+            ],
+            [
+                'nama' => 'Bak Mandi Malang',
+                'harga' => 1400000,
+                'kategori_id' => 1,
+                'jumlah_stok' => 10,
+                'keterangan' => '• Tinggi 70cm bonus tatakan 15cm, lebar 50cm • Permukaan glossy mengkilap • Dilengkapi lubang untuk menguras air • Silahkan chat wa untuk informasi ongkir',
+                'berat' => 20,
+            ],
+            [
+                'nama' => 'Bak Mandi UIN',
+                'harga' => 900000,
+                'kategori_id' => 1,
+                'jumlah_stok' => 20,
+                'keterangan' => '• Tinggi 65cm (termasuk tatakan), lebar 45cm • Permukaan glossy mengkilap • Dilengkapi lubang untuk menguras air • Silahkan chat wa untuk informasi ongkir',
+                'berat' => 20,
+            ]
         ]);
-
-        DB::table('products')->insert([
-        	'nama' => 'Rak Ambalan Gantung Natural',
-            'harga' => 125000,
-            'kategori_id' => 2,
-            'jumlah_stok' => 25,
-            'gambar' => 'gantungnatural.png'
-        ]);
-
-        DB::table('products')->insert([
-        	'nama' => 'Rak Kotak Natural 1 Set + Pot',
-            'harga' => 150000,
-            'kategori_id' => 1,
-            'jumlah_stok' => 70,
-            'gambar' => 'kotaknatural.png'
-        ]);
-
-        DB::table('products')->insert([
-        	'nama' => 'Rak Kotak Hitam 1 Set + Pot',
-            'harga' => 150000,
-            'kategori_id' => 1,
-            'jumlah_stok' => 100,
-            'gambar' => 'kotakhitam.png'
-        ]);
-
-        DB::table('products')->insert([
-        	'nama' => 'Rak Datar Natural 1 Set ',
-            'harga' => 135000,
-            'kategori_id' => 1,
-            'jumlah_stok' => 90,
-            'gambar' => 'datarnatural.png'
-        ]);
-
-        DB::table('products')->insert([
-        	'nama' => 'Rak Datar Putih 1 Set',
-            'harga' => 135000,
-            'kategori_id' => 1,
-            'jumlah_stok' => 70,
-            'gambar' => 'datarputih.png'
-        ]);
-
-        DB::table('products')->insert([
-        	'nama' => 'Rak Datar Hitam 1 Set',
-            'harga' => 135000,
-            'kategori_id' => 1,
-            'jumlah_stok' => 78,
-            'gambar' => 'datarhitam.png'
-        ]);
-
-        DB::table('products')->insert([
-        	'nama' => 'Rak Hexagonal Natural 1 Set',
-            'harga' => 160000,
-            'kategori_id' => 1,
-            'jumlah_stok' => 66,
-            'gambar' => 'hexagonalnatural.png'
-        ]);
-
-        DB::table('products')->insert([
-        	'nama' => 'Rak Hexagonal Hitam 1 Set',
-            'harga' => 160000,
-            'kategori_id' => 1,
-            'jumlah_stok' => 82,
-            'gambar' => 'hexagonalhitam.png'
-        ]);
-
-        DB::table('products')->insert([
-        	'nama' => 'Rak Hexagonal Putih 1 Set',
-            'harga' => 160000,
-            'kategori_id' => 1,
-            'jumlah_stok' => 73,
-            'gambar' => 'hexagonalputih.png'
+        DB::table('photo_products')->insert([
+            [
+                'product_id' => '1',
+                'photo_path' => 'blongfull.jpg'
+            ],
+            [
+                'product_id' => '2',
+                'photo_path' => 'bakul.jpg'
+            ],
+            [
+                'product_id' => '3',
+                'photo_path' => 'malang.jpg'
+            ],
+            [
+                'product_id' => '4',
+                'photo_path' => 'uin.jpg'
+            ],
+            
         ]);
     }
 }

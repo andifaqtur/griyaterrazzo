@@ -14,7 +14,7 @@ class ProductDetail extends Component
 
     public function mount($id)
     {
-        $productDetail = Product::find($id);
+        $productDetail = Product::with('photo_product')->find($id);
 
         if($productDetail) {
             $this->product = $productDetail;
@@ -33,7 +33,7 @@ class ProductDetail extends Component
         }
 
         //Menghitung Total berat
-        
+
         $total_berat = $this->jumlah_pesanan*2;
 
         //Menghitung ongkir
@@ -63,12 +63,12 @@ class ProductDetail extends Component
         }
 
         //Menghitung Total Harga
-        
+
         $total_harga = $this->jumlah_pesanan*$this->product->harga + $ongkir;
 
-        
-        
-        
+
+
+
         //Ngecek Apakah user punya data pesanan utama yg status nya 0
         $pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status',0)->first();
 
